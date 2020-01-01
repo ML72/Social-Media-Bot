@@ -62,6 +62,5 @@ public class FollowerSpammer {
 		}
 
 		System.out.println("Done :)");
-
 	}
 }
