@@ -24,14 +24,14 @@ public class FollowerSpammer {
 	
 	@SuppressWarnings("unchecked")
 	public static void main(String[] args) throws Exception {
-
-		// sign into sending account
+		
+		// sign into sending account; edit username and password as needed
 		Instagram4j instagram = Instagram4j.builder().username("java.directmessage.testbot").password("newgame1234").build();
 		instagram.setup();
 		instagram.login();
 
-		// target account
-		InstagramSearchUsernameResult target = instagram.sendRequest(new InstagramSearchUsernameRequest("mickyhappened"));
+		// get target account
+		InstagramSearchUsernameResult target = instagram.sendRequest(new InstagramSearchUsernameRequest("java.directmessage.testbot"));
 
 		// get list of followers of target with pagination
 		ArrayList<InstagramUserSummary> followersList = new ArrayList<InstagramUserSummary>();
@@ -54,7 +54,7 @@ public class FollowerSpammer {
 			recipients.add("" + user.getPk());
 			
 			// send message
-			//instagram.sendRequest(InstagramDirectShareRequest.builder().shareType(ShareType.MESSAGE).recipients(recipients).message("" + user.getFull_name() + ", you're awesome and Happy 2020!").build());
+			instagram.sendRequest(InstagramDirectShareRequest.builder().shareType(ShareType.MESSAGE).recipients(recipients).message("" + user.getFull_name() + ", you're awesome and Happy 2020!").build());
 			System.err.println("Sent message to " + user.getUsername() + " - user " + (followersList.indexOf(user) + 1) + "/" + followersList.size());
 		
 			// delay between sends

@@ -27,6 +27,7 @@ public class KeypressHangoutsBot {
 		}
 	}
 	
+	// pass in a robot to use, and input the text to type; can change code in method if needed
 	public static String type(String text, Robot r) throws Exception {
 		
 		try {
@@ -58,6 +59,7 @@ public class KeypressHangoutsBot {
 		return text;
 	}
 	
+	// inner class to generate insults; can edit?
 	class InsultGenerator {
 		
 		// can add more later
